@@ -7,11 +7,13 @@
 namespace CodeSinging\PinAdmin\Tests\Foundation;
 
 use CodeSinging\PinAdmin\Foundation\Admin;
-use CodeSinging\PinAdmin\Foundation\AdminServiceProvider;
+use CodeSinging\PinAdmin\Tests\PackageProviders;
 use Orchestra\Testbench\TestCase;
 
 class AdminTest extends TestCase
 {
+    use PackageProviders;
+
     /**
      * @var Admin
      */
@@ -21,11 +23,6 @@ class AdminTest extends TestCase
     {
         parent::setUp();
         $this->admin = Admin::app();
-    }
-
-    protected function getPackageProviders($app): array
-    {
-        return [AdminServiceProvider::class];
     }
 
     public function testVersion()

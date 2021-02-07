@@ -7,15 +7,12 @@
 namespace CodeSinging\PinAdmin\Tests\Foundation;
 
 use CodeSinging\PinAdmin\Foundation\Admin;
-use CodeSinging\PinAdmin\Foundation\AdminServiceProvider;
+use CodeSinging\PinAdmin\Tests\PackageProviders;
 use Orchestra\Testbench\TestCase;
 
 class AdminServiceProviderTest extends TestCase
 {
-    protected function getPackageProviders($app): array
-    {
-        return [AdminServiceProvider::class];
-    }
+    use PackageProviders;
 
     public function testRegisterBinding()
     {
@@ -25,5 +22,10 @@ class AdminServiceProviderTest extends TestCase
     public function testSingleton()
     {
         self::assertSame(app(Admin::NAME), app(Admin::NAME));
+    }
+
+    public function testRegisterCommands()
+    {
+        $this->artisan('admin')->assertExitCode(0);
     }
 }
