@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static string directory(string $path = '')
  * @method static string path(string $path = '')
  * @method static string getNamespace(string $path = '')
- * @method static string pagePath(string $path = '')
+ * @method static string packagePath(string $path = '')
  * @method static AdminClass app()
  */
 class Admin extends Facade

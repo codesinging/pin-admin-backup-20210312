@@ -6,6 +6,7 @@
 
 namespace CodeSinging\PinAdmin\Foundation;
 
+use CodeSinging\PinAdmin\Console\Commands\ListCommand;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
@@ -15,7 +16,9 @@ class AdminServiceProvider extends ServiceProvider
      * The console commands of PinAdmin.
      * @var array
      */
-    protected $commands = [];
+    protected $commands = [
+        ListCommand::class,
+    ];
 
     /**
      * The middlewares of PinAdmin.
