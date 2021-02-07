@@ -127,8 +127,8 @@ class Admin
      * Get an Admin instance..
      * @return $this
      */
-    public function app(): self
+    public static function app(): self
     {
-        return app($this->name());
+        return app(self::NAME);
     }
 }
