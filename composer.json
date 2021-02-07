@@ -24,5 +24,12 @@
     },
     "require-dev": {
         "orchestra/testbench": "^6.11"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CodeSinging\\PinAdmin\\Foundation\\AdminServiceProvider"
+            ]
+        }
     }
 }
