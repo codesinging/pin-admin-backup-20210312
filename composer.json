@@ -29,7 +29,10 @@
         "laravel": {
             "providers": [
                 "CodeSinging\\PinAdmin\\Foundation\\AdminServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Admin": "CodeSinging\\PinAdmin\\Facades\\Admin"
+            }
         }
     }
 }
