@@ -21,4 +21,9 @@ class AdminServiceProviderTest extends TestCase
     {
         self::assertInstanceOf(Admin::class, app(Admin::NAME));
     }
+
+    public function testSingleton()
+    {
+        self::assertSame(app(Admin::NAME), app(Admin::NAME));
+    }
 }
