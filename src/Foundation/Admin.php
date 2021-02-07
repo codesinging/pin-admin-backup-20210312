@@ -4,7 +4,7 @@
  * Github: https://github.com/codesinging
  */
 
-namespace CodeSinging\PinAdmin;
+namespace CodeSinging\PinAdmin\Foundation;
 
 class Admin
 {
