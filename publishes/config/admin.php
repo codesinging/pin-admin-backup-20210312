@@ -14,7 +14,6 @@ return [
     | This value is the name of your PinAdmin application. This value is used when the
     | framework needs to place the application's name in a notification or
     | any other location as required by the application or its packages.
-    |
     */
 
     'name' => 'PinAdmin 后台管理系统',
@@ -25,7 +24,6 @@ return [
     |--------------------------------------------------------------------------
     |
     | This value is the prefix of all the application's route.
-    |
     */
 
     'route_prefix' => 'admin',
@@ -36,7 +34,6 @@ return [
     |--------------------------------------------------------------------------
     |
     | The route of the PinAdmin application's home.
-    |
     */
 
     'home' => '/',
@@ -47,12 +44,38 @@ return [
     |--------------------------------------------------------------------------
     |
     | All the configuration about authentication.
-    |
     */
 
     'auth' => [
         'captcha' => true,
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | The middleware of the PinAdmin application
+    |--------------------------------------------------------------------------
+    |
+    | All the middleware of the PinAdmin application.
+    */
+    'middleware' => [],
+
+    /*
+    |--------------------------------------------------------------------------
+    | The authentication middleware of the PinAdmin application
+    |--------------------------------------------------------------------------
+    |
+    | All the middleware that only apply for the authentication routes.
+    */
+    'auth_middleware' => [],
+
+    /*
+    |--------------------------------------------------------------------------
+    | The guest middleware of the PinAdmin application
+    |--------------------------------------------------------------------------
+    |
+    | All the middleware that only apply for the guest routes.
+    */
+    'guest_middleware' => [],
 
     /*
     |--------------------------------------------------------------------------
