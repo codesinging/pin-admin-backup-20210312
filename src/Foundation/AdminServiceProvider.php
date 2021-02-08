@@ -7,7 +7,9 @@
 namespace CodeSinging\PinAdmin\Foundation;
 
 use CodeSinging\PinAdmin\Console\Commands\AdminCommand;
+use CodeSinging\PinAdmin\Console\Commands\InstallCommand;
 use CodeSinging\PinAdmin\Console\Commands\ListCommand;
+use CodeSinging\PinAdmin\Facades\Admin as AdminFacade;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
@@ -20,6 +22,7 @@ class AdminServiceProvider extends ServiceProvider
     protected $commands = [
         AdminCommand::class,
         ListCommand::class,
+        InstallCommand::class,
     ];
 
     /**
@@ -44,6 +47,7 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->publishResources();
     }
 
     /**
@@ -75,5 +79,21 @@ class AdminServiceProvider extends ServiceProvider
         foreach ($this->middlewares as $key => $middleware) {
             $router->aliasMiddleware($key, $middleware);
         }
+    }
+
+    /**
+     * Publish resources.
+     */
+    protected function publishResources(): void
+    {
+        $this->publishes(
+            [
+                AdminFacade::packagePath('publishes/config') => config_path(),
+                AdminFacade::packagePath('publishes/routes') => base_path('routes'),
+                AdminFacade::packagePath('publishes/assets') => public_path('static/vendor/' . AdminFacade::name()),
+                AdminFacade::packagePath('publishes/images') => public_path('static/vendor/' . AdminFacade::name() . '/images'),
+            ],
+            AdminFacade::name()
+        );
     }
 }
