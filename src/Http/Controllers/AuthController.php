@@ -10,6 +10,7 @@ class AuthController extends Controller
 {
     public function index()
     {
-        return __METHOD__;
+        $this->setPageTitle('管理登录');
+        return $this->adminView('auth.index');
     }
 }

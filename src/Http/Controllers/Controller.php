@@ -8,6 +8,7 @@ namespace CodeSinging\PinAdmin\Http\Controllers;
 
 use CodeSinging\PinAdmin\Http\Support\ControllerAction;
 use CodeSinging\PinAdmin\Http\Support\JsonResponses;
+use CodeSinging\PinAdmin\Http\Support\PageTitle;
 use CodeSinging\PinAdmin\Http\Support\ViewResponses;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -17,5 +18,5 @@ class Controller extends \Illuminate\Routing\Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    use ControllerAction, JsonResponses, ViewResponses;
+    use ControllerAction, JsonResponses, ViewResponses, PageTitle;
 }
