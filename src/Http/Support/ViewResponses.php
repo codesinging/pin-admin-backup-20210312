@@ -12,6 +12,8 @@ use Illuminate\View\View;
 
 trait ViewResponses
 {
+    use PageTitle;
+
     /**
      * Get the base view data.
      * @return array
@@ -21,6 +23,7 @@ trait ViewResponses
         return [
             'baseUrl' => Admin::link(),
             'adminUser' => Admin::user(),
+            'pageTitle' => $this->pageTitle(),
         ];
     }
 
