@@ -2,34 +2,60 @@
 
 @section('content')
     <div id="app" class="h-full flex items-center justify-center">
-        <el-card class="w-96" shadow="hover">
+        <el-card class="login-card" shadow="hover">
             <template #header>
                 <div>用户登录</div>
             </template>
             <el-form>
+
                 <el-form-item>
-                    <el-input></el-input>
+                    <el-input>
+                        <template #prepend>
+                            <div class="w-16 text-center">登录账号</div>
+                        </template>
+                    </el-input>
                 </el-form-item>
+
+                <el-form-item>
+                    <el-input>
+                        <template #prepend>
+                            <div class="w-16 text-center">登录密码</div>
+                        </template>
+                    </el-input>
+                </el-form-item>
+
+                <div>
+                    <el-button type="primary" class="w-full" @click="onSubmit" :loading="state.submit">登录</el-button>
+                </div>
+
             </el-form>
         </el-card>
     </div>
 
     <script>
-        const App = {
-            data(){
+        createVueApp('#app', {
+            data() {
                 return {
                     message: 'hello'
                 }
+            },
+            methods: {
+                onSubmit(){
+                    this.$toggle('submit')
+                }
             }
-        }
-        Vue.createApp(App).use(ElementPlus).mount('#app')
+        })
     </script>
 @endsection
 
 @section('style')
     <style>
-        html,body{
+        html, body {
             height: 100%;
+        }
+
+        .login-card {
+            width: 480px;
         }
     </style>
 @endsection

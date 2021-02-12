@@ -188208,5 +188208,8 @@ video {
 .el-affix--fixed{
   position:fixed
 }
+button:focus{
+  outline: none;
+}
 
 
