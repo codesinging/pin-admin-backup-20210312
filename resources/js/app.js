@@ -21,3 +21,10 @@ window.createVueApp = (element, App) => {
 
     return app
 }
+
+console.log(
+    `%c ${admin.name} %c v${admin.version} %c`,
+    'background:#0099e5 ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
+    'background:#34bf49 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
+    'background:transparent'
+)
