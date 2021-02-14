@@ -1,6 +1,6 @@
 import {createApp} from 'vue'
 
-window.ElementPlus = require('element-plus')
+import ElementPlus from 'element-plus'
 
 import admin from './admin'
 
@@ -8,9 +8,16 @@ window.admin = admin
 
 import state from './mixins/state'
 
+import http from './http'
+
 window.createVueApp = (element, App) => {
-    return createApp(App)
-        .mixin(state)
-        .use(ElementPlus)
-        .mount(element)
+    const app = createApp(App)
+
+    app.mixin(state)
+    app.use(ElementPlus)
+    app.mount(element)
+
+    app.config.globalProperties.$http = http
+
+    return app
 }

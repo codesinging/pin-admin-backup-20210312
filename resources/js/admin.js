@@ -1,5 +1,7 @@
 import {reactive} from 'vue'
 
+import { ElMessage } from "element-plus"
+
 const state = reactive({})
 
 const set = (key, value) => {
@@ -31,4 +33,5 @@ export default {
     toggle,
     set,
     get,
+    message: ElMessage,
 }

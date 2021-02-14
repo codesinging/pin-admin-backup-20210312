@@ -41,7 +41,7 @@
             },
             methods: {
                 onSubmit(){
-                    this.$toggle('submit')
+                    this.$http.put('auth/login')
                 }
             }
         })

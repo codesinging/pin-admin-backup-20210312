@@ -11,8 +11,8 @@
     @yield('style')
     <script>
         let adminVersion = '{{ admin()->version() }}';
-        let adminCsrfToken = '{{ csrf_token() }}';
-        let adminBaseUrl = '{{ $baseData['baseUrl'] ?? '' }}';
+        let csrfToken = '{{ csrf_token() }}';
+        let baseUrl = '{{ $baseData['baseUrl'] ?? '' }}';
     </script>
     @yield('header')
 </head>
