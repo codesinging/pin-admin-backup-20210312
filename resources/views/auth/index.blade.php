@@ -33,7 +33,7 @@
     </div>
 
     <script>
-        createVueApp('#app', {
+        admin.createApp('#app', {
             data() {
                 return {
                     message: 'hello'

@@ -1,7 +1,5 @@
 import {reactive} from 'vue'
 
-import { ElMessage } from "element-plus"
-
 const state = reactive({})
 
 const set = (key, value) => {
@@ -25,13 +23,10 @@ const toggle = key => {
 }
 
 export default {
-    name: 'PinAdmin',
-    version: adminVersion,
     state,
     setTrue,
     setFalse,
     toggle,
     set,
     get,
-    message: ElMessage,
 }
