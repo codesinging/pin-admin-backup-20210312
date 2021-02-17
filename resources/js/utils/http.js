@@ -1,4 +1,15 @@
-const axios = require('axios')
+import axios from "axios"
+import log from "./log"
+
+const errors = (type, error) => {
+    log.error(type)
+
+    Object.keys(error).forEach(key => {
+        if (typeof error[key] !== 'function') {
+            console.log(`[${key}]`, error[key])
+        }
+    })
+}
 
 axios.defaults.baseURL = baseUrl
 axios.defaults.withCredentials = true
@@ -19,11 +30,7 @@ axios.interceptors.request.use(config => {
 }, error => {
     admin.message.error('发送网络请求错误')
 
-    Object.keys(error).forEach(key => {
-        if (typeof error[key] !== 'function') {
-            console.log(`[request.error: ${key}]`, error[key])
-        }
-    })
+    errors('request.error', error)
 
     return Promise.reject(error)
 })
@@ -44,11 +51,7 @@ axios.interceptors.response.use(response => {
                 admin.message.error(response.data.message || '响应数据错误')
             }
 
-            Object.keys(response).forEach(key => {
-                if (typeof response[key] !== 'function') {
-                    console.log(`[response.data.error: ${key}]`, response[key])
-                }
-            })
+            errors('response.data.error', response)
 
             return Promise.reject(response.data.message)
         }
@@ -56,11 +59,9 @@ axios.interceptors.response.use(response => {
         if (response.config.message) {
             admin.message.error(response.data.message || '请求响应错误')
         }
-        Object.keys(response).forEach(key => {
-            if (typeof response[key] !== 'function') {
-                console.log(`[response.status.error: ${key}]`, response[key])
-            }
-        })
+
+        errors('response.status.error', response)
+
     }
     return Promise.reject(response.data.message)
 }, error => {
@@ -76,11 +77,8 @@ axios.interceptors.response.use(response => {
         admin.message.error(message || error.response.statusText || '网络请求错误')
     }
 
-    Object.keys(error).forEach(key => {
-        if (typeof error[key] !== 'function') {
-            console.log(`[response.error: ${key}]`, error[key])
-        }
-    })
+    errors('response.error', error)
+
 
     return Promise.reject(error)
 })

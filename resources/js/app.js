@@ -2,17 +2,20 @@ import {createApp} from 'vue'
 
 import ElementPlus, {ElMessage} from 'element-plus'
 
-import state from './state'
+import state from './utils/state'
 
-import mixin from './mixin'
+import mixin from './utils/mixin'
 
-import http from './http'
+import http from './utils/http'
+
+import log from "./utils/log";
 
 window.admin = {
     name: 'PinAdmin',
     version: adminVersion,
     ...state,
     message: ElMessage,
+    log,
     createApp: (element, App) => {
         const app = createApp(App)
 
@@ -26,9 +29,4 @@ window.admin = {
     }
 }
 
-console.log(
-    `%c ${admin.name} %c v${admin.version} %c`,
-    'background:#0099e5 ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
-    'background:#34bf49 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
-    'background:transparent'
-)
+log.info(`version: ${admin.version}`)
