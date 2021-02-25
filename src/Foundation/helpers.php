@@ -5,6 +5,8 @@
  */
 
 use CodeSinging\PinAdmin\Foundation\Admin;
+use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Support\HtmlString;
 
 if (!function_exists('admin')) {
@@ -55,5 +57,15 @@ if (!function_exists('admin_template')) {
     function admin_template(string $path): string
     {
         return Admin::app()->template($path);
+    }
+}
+
+if (!function_exists('admin_auth')){
+    /**
+     * Get the available auth instance with the Admin's guard.
+     * @return Guard|StatefulGuard
+     */
+    function admin_auth(){
+        return Admin::app()->auth();
     }
 }

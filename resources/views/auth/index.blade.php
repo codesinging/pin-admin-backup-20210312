@@ -28,6 +28,8 @@
                     <el-button type="primary" class="w-full" @click="onSubmit" :loading="state.submit">登录</el-button>
                 </div>
 
+                <fullscreen></fullscreen>
+
             </el-form>
         </el-card>
     </div>
