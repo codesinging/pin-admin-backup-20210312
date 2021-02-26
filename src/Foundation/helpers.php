@@ -5,6 +5,7 @@
  */
 
 use CodeSinging\PinAdmin\Foundation\Admin;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Support\HtmlString;
@@ -67,5 +68,16 @@ if (!function_exists('admin_auth')){
      */
     function admin_auth(){
         return Admin::app()->auth();
+    }
+}
+
+if (!function_exists('admin_user')){
+    /**
+     * Get the currently authenticated user.
+     * @return Authenticatable|null
+     */
+    function admin_user(): ?Authenticatable
+    {
+        return Admin::app()->user();
     }
 }
