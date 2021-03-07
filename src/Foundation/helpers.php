@@ -81,3 +81,15 @@ if (!function_exists('admin_user')){
         return Admin::app()->user();
     }
 }
+
+if (!function_exists('admin_user_id')){
+    /**
+     * Get the ID for the currently authenticated user.
+     *
+     * @return Authenticatable|int|string|null
+     */
+    function admin_user_id()
+    {
+        return Admin::app()->auth()->id();
+    }
+}
