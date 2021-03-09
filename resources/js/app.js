@@ -10,8 +10,6 @@ import http from './utils/http'
 
 import log from "./utils/log";
 
-import Fullscreen from "./components/Fullscreen"
-
 window.admin = {
     name: 'PinAdmin',
     version: adminVersion,
@@ -24,8 +22,6 @@ window.admin = {
         app.mixin(mixin)
         app.use(ElementPlus)
         app.mount(element)
-
-        app.component('fullscreen', Fullscreen)
 
         app.config.globalProperties.$http = http
 
